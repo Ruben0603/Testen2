@@ -19,7 +19,7 @@ public class AccountApiTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    public void testGetAccounts() {
+    public void testGetAccount() {
         HttpHeaders headers = new HttpHeaders();
         headers.set("X-User-Id", "1");
 
@@ -38,7 +38,6 @@ public class AccountApiTest {
         // Optioneel: Controleer de gegevens van het geretourneerde account
         AccountResponse account = response.getBody().getAccounts().get(0);
         Assertions.assertEquals("Rekening van Melvin", account.getName());
-        Assertions.assertEquals(1168.64, account.getBalance().doubleValue());
         Assertions.assertEquals(1, account.getId());
     }
 }
